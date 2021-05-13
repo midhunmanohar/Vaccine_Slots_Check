@@ -5,12 +5,13 @@ import json
 
 
 BBMP = 294
+#BBMP= 796 # TVM
 Blr_urban = 265
 
-numdays = 5 #Days to check ahead of schedule
+numdays = 5
 age = 30
 
-teleurl = "https://api.telegram.org/bot[bot_token]/sendMessage?chat_id=@blrvaxcheck&text="
+teleurl = "https://api.telegram.org/bot[bottoken]/sendMessage?chat_id=@[channelname]&text="
 
 base = datetime.datetime.today()
 date_list = [base + datetime.timedelta(days=x) for x in range(numdays)]
@@ -39,19 +40,20 @@ def bbmp():
                                 count = 1
                             #print("\t", center["name"])
                             #print("\t", center["block_name"])
+                            print("\t", center["pincode"]) 
                             #print("\t Price: ", center["fee_type"])
                             #print("\t Available Capacity: ", session["available_capacity"])
                             
                             if(session["vaccine"] != '' and check == 0):
                                 #print("\t Vaccine: ", session["vaccine"])
-                                requests.get(teleurl+"Bangalore BBMP\nDate: "+str(date)+"\n\t"+center["name"]+"\n\t"+center["block_name"]+"\n\tPrice: "+center["fee_type"]+"\n\tAvailable Capacity: "+str(session["available_capacity"])+"\n\tVaccine: "+(session["vaccine"]))
-                                #print("Bangalore BBMP\nDate: "+str(date)+"\n\t"+center["name"]+"\n\t"+center["block_name"]+"\n\tPrice: "+center["fee_type"]+"\n\tAvailable Capacity: "+str(session["available_capacity"])+"\n\tVaccine: "+(session["vaccine"]))
+                                #requests.get(teleurl+"Bangalore BBMP\nDate: "+str(date)+"\n\t"+center["name"]+"\n\t"+center["block_name"]+"\n\tPrice: "+center["fee_type"]+"\n\tAvailable Capacity: "+str(session["available_capacity"])+"\n\tVaccine: "+(session["vaccine"]))
+                                print("Bangalore BBMP\nDate: "+str(date)+"\n\t"+center["name"]+"\n\t"+center["block_name"]+"\n\t"+center["pincode"]+"\n\tPrice: "+center["fee_type"]+"\n\tAvailable Capacity: "+str(session["available_capacity"])+"\n\tVaccine: "+(session["vaccine"]))
                                 check = 1
                             else:
                                 print("No Stock\n")
                             if check == 0:
-                                requests.get(teleurl+"Bangalore BBMP\nDate: "+str(date)+"\n\t"+center["name"]+"\n\t"+center["block_name"]+"\n\tPrice: "+center["fee_type"]+"\n\tAvailable Capacity: "+str(session["available_capacity"]))
-                                #print("Bangalore BBMP\nDate: "+str(date)+"\n\t"+center["name"]+"\n\t"+center["block_name"]+"\n\tPrice: "+center["fee_type"]+"\n\tAvailable Capacity: "+str(session["available_capacity"]))
+                                #requests.get(teleurl+"Bangalore BBMP\nDate: "+str(date)+"\n\t"+center["name"]+"\n\t"+center["block_name"]+"\n\tPrice: "+center["fee_type"]+"\n\tAvailable Capacity: "+str(session["available_capacity"]))
+                                print("Bangalore BBMP\nDate: "+str(date)+"\n\t"+center["name"]+"\n\t"+center["block_name"]+"\n\t"+center["pincode"]+"\n\tPrice: "+center["fee_type"]+"\n\tAvailable Capacity: "+str(session["available_capacity"]))
                             
                             print("\n\n")
             else:
@@ -79,18 +81,19 @@ def blrurban():
                                 count = 1
                             #print("\t", center["name"])
                             #print("\t", center["block_name"])
+                            print("\t", center["pincode"])   
                             #print("\t Price: ", center["fee_type"])
                             #print("\t Available Capacity: ", session["available_capacity"])
                             if(session["vaccine"] != '' and check == 0):
                                 #print("\t Vaccine: ", session["vaccine"])
-                                requests.get(teleurl+"Bangalore Urban\nDate: "+str(date)+"\n\t"+center["name"]+"\n\t"+center["block_name"]+"\n\tPrice: "+center["fee_type"]+"\n\tAvailable Capacity: "+str(session["available_capacity"])+"\n\tVaccine: "+(session["vaccine"]))
-                                #print("Bangalore BBMP\nDate: "+str(date)+"\n\t"+center["name"]+"\n\t"+center["block_name"]+"\n\tPrice: "+center["fee_type"]+"\n\tAvailable Capacity: "+str(session["available_capacity"])+"\n\tVaccine: "+(session["vaccine"]))
+                                #requests.get(teleurl+"Bangalore BBMP\nDate: "+str(date)+"\n\t"+center["name"]+"\n\t"+center["block_name"]+"\n\tPrice: "+center["fee_type"]+"\n\tAvailable Capacity: "+str(session["available_capacity"])+"\n\tVaccine: "+(session["vaccine"]))
+                                print("Bangalore BBMP\nDate: "+str(date)+"\n\t"+center["name"]+"\n\t"+center["block_name"]+"\n\t"+center["pincode"]+"\n\tPrice: "+center["fee_type"]+"\n\tAvailable Capacity: "+str(session["available_capacity"])+"\n\tVaccine: "+(session["vaccine"]))
                                 check = 1
                             else:
                                 print("No Stock\n")
                             if check == 0:
-                                requests.get(teleurl+"Bangalore Urban\nDate: "+str(date)+"\n\t"+center["name"]+"\n\t"+center["block_name"]+"\n\tPrice: "+center["fee_type"]+"\n\tAvailable Capacity: "+str(session["available_capacity"]))
-                                #print("Bangalore BBMP\nDate: "+str(date)+"\n\t"+center["name"]+"\n\t"+center["block_name"]+"\n\tPrice: "+center["fee_type"]+"\n\tAvailable Capacity: "+str(session["available_capacity"]))
+                                #requests.get(teleurl+"Bangalore BBMP\nDate: "+str(date)+"\n\t"+center["name"]+"\n\t"+center["block_name"]+"\n\tPrice: "+center["fee_type"]+"\n\tAvailable Capacity: "+str(session["available_capacity"]))
+                                print("Bangalore BBMP\nDate: "+str(date)+"\n\t"+center["name"]+"\n\t"+center["block_name"]+"\n\t"+center["pincode"]+"\n\tPrice: "+center["fee_type"]+"\n\tAvailable Capacity: "+str(session["available_capacity"]))
                             
                             print("\n\n")
             else:
